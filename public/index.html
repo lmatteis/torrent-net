@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Tahoma, Geneva, sans-serif;
+      }
+      div {
+        display: inline;
+      }
+    </style>
+    <script>
+      var resultCount = 0;
+      function update(data) {
+        var obj = JSON.parse(data);
+        if (obj.progress)
+          document.getElementById('progress').innerHTML = obj.progress;
+
+        if (obj.alert)
+          document.getElementById('alert').innerHTML = obj.alert;
+
+        if (obj.result) {
+          // resultCount++;
+          // if (resultCount == 10) {
+          //   document.getElementById('result').value = '';
+          //   resultCount = 0;
+          // }
+          document.getElementById('result').value = JSON.stringify(obj.result) + '\n' + document.getElementById('result').value;
+        }
+
+        if (obj.ready)
+          document.getElementById('btn').disabled = false;
+      }
+      var host = window.document.location.host.replace(/:.*/, '');
+      var ws = new WebSocket('ws://' + host + ':' + location.port);
+      ws.onmessage = function (event) {
+        update(event.data);
+      };
+      ws.onopen = () => {
+        document.getElementById('btn').onclick = () => {
+          ws.send(document.getElementById('input').value);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2 id="progress"></h2>
+    <h2 id="alert"></h2>
+    <textarea id='input' style="width: 500px; height: 60px;"></textarea>
+    <button id='btn' disabled="true">submit sql query</button>
+    <br />
+    <textarea id="result" style="width: 500px; height: 500px;"></textarea>
+  </body>
+</html>

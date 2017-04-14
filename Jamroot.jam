@@ -1,0 +1,40 @@
+import modules ;
+import feature : feature ;
+import virtual-target ;
+
+BOOST_ROOT = [ modules.peek : BOOST_ROOT ] ;
+TORRENT_ROOT = [ modules.peek : TORRENT_ROOT ] ;
+
+if $(BOOST_ROOT)
+{
+	use-project /boost : $(BOOST_ROOT) ;
+}
+
+if $(TORRENT_ROOT)
+{
+	use-project /torrent : $(TORRENT_ROOT) ;
+}
+
+feature use-boost : system source : composite ;
+feature use-torrent : system source : composite ;
+
+lib torrent-rasterbar : : <name>torrent-rasterbar <link>shared ;
+
+lib sqltorrent
+	: #sources
+	sqltorrent.cpp
+
+	: #requirements
+	<toolset>gcc:<cxxflags>-std=c++11
+	<use-torrent>source:<library>/torrent//torrent
+	<use-torrent>system:<library>torrent-rasterbar
+	<use-boost>source:<include>$(BOOST_ROOT)
+
+	# disable bogus deprecation warnings on msvc8
+	<toolset>msvc:<define>_SCL_SECURE_NO_DEPRECATE
+	<toolset>msvc:<define>_CRT_SECURE_NO_DEPRECATE
+
+	: # default build
+	: # usage requirements
+
+	;
