@@ -4,6 +4,8 @@ By putting an SQLite database file (.db) inside a torrent, we can query its cont
 
 TorrentPeek was inspired by [sqltorrent](https://github.com/bittorrent/sqltorrent).
 
+![](https://github.com/lmatteis/torrent-peek/blob/master/out.gif?raw=true)
+
 A video is worth 1000 words: https://www.youtube.com/watch?v=EKttt8PYu5M&feature=youtu.be
 
 
