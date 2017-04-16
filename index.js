@@ -93,10 +93,15 @@ function runQuery(db, query, callback) {
 
   var b = new Buffer('test')
   SQLite3.sqlite3_exec.async(db, query, callback2, b, null, function (err, ret) {
-    if (err || ret !== 0)
+    if (err || ret !== 0) {
       return wsSend({
         result: 'error: ' +  SQLite3.sqlite3_errmsg(db)
       })
+    } else {
+      return wsSend({
+        success: query,
+      })
+    }
   })
 }
 

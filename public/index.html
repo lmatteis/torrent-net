@@ -10,7 +10,6 @@
       }
     </style>
     <script>
-      var resultCount = 0;
       function update(data) {
         var obj = JSON.parse(data);
         if (obj.progress)
@@ -20,15 +19,13 @@
           document.getElementById('alert').innerHTML = obj.alert;
 
         if (obj.result) {
-          // resultCount++;
-          // if (resultCount == 10) {
-          //   document.getElementById('result').value = '';
-          //   resultCount = 0;
-          // }
           document.getElementById('result').value = JSON.stringify(obj.result) + '\n' + document.getElementById('result').value;
         }
 
         if (obj.ready)
+          document.getElementById('btn').disabled = false;
+
+        if (obj.success)
           document.getElementById('btn').disabled = false;
       }
       var host = window.document.location.host.replace(/:.*/, '');
@@ -38,6 +35,7 @@
       };
       ws.onopen = () => {
         document.getElementById('btn').onclick = () => {
+          document.getElementById('btn').disabled = true;
           ws.send(document.getElementById('input').value);
         }
       }
