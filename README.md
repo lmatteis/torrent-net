@@ -18,7 +18,7 @@ Site owners create an SQLite database (.db file) and create a torrent from this 
 
 Site users then start downloading the site torrent, but, rather than downloading pieces of the torrent in "rarest first" order, they download pieces based on the *search query* they performed.
 
-In other words, given a search query such as "indiana jones", TorrentPeek knows to download pieces of the torrent where data for "indiana jones" is likely to be stored at.
+**In other words, given a search query such as "indiana jones", TorrentPeek knows to download pieces of the torrent where data for "indiana jones" is likely to be stored at.**
 
 Hence, results are given to users in a timely manner, without having to wait until the entire database is downloaded.
 
