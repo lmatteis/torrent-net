@@ -1,5 +1,27 @@
 # About
 
+Distributed sites have gained much attention lately with systems such as [ZeroNet](https://zeronet.io/) and [IPFS](https://ipfs.io/), which seem to improve on older systems like [Freenet](https://freenetproject.org/).
+
+Building search engines on top of these distributed systems is not quite feasible yet as users need to download the entire site database (usually several hundreds of gigabytes large) before running queries against it.
+
+TorrentPeek allows you to build distributed search engines by leveraging the BitTorrent network and the SQLite database. Users do not have to wait until the site is fully downloaded before they can query it.
+
+## How?
+
+Site owners create an SQLite database (.db file) and create a torrent from this file. They then proceed to seed this torrent -- just like they would seed any other file.
+
+Site users then start downloading the site torrent, but, rather than downloading pieces of the torrent in "rarest first" order, they download pieces based on the *search query* they performed.
+
+In other words, given a search query such as "indiana jones", TorrentPeek knows to download pieces of the torrent where data for "indiana jones" is likely to be stored at.
+
+Hence, results are given to users in a timely manner, without having to wait until the entire database is downloaded.
+
+Furthermore, since search queries are just regular torrent piece downloads, a search query can be satisfied by many different peers in a swarm, effectively allowing for distributed search engines.
+
+# Main features
+
+Distributed torrent sites, queryable on demand by prioritizing specific piece downloads.
+
 * Create distributed torrent sites accessible via your public key (eg. `33cwte8iwWn7uhtj9MKCs4q5Ax7B`) that are shared and kept alive using the BitTorrent network.
 
 * Update your site using the Mutable Torrents extension ([BEP46](http://bittorrent.org/beps/bep_0046.html)) and let your users know about site updates via the DHT network.
