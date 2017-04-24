@@ -1,8 +1,8 @@
-# TorrentPeek
+# TorrentNet
 
 > Distributed search engines using BitTorrent and SQLite
 
-![](https://github.com/lmatteis/torrent-peek/blob/master/out.gif?raw=true)
+![](https://github.com/lmatteis/torrent-net/blob/master/out.gif?raw=true)
 
 # About
 
@@ -10,7 +10,7 @@ Distributed sites have gained much attention lately with systems such as [ZeroNe
 
 Building search engines on top of these distributed systems is not quite feasible yet as users need to download the entire site database (usually several hundreds of gigabytes large) before running queries against it.
 
-TorrentPeek allows you to build distributed search engines by leveraging the BitTorrent network and the SQLite database. Users do not have to wait until the site is fully downloaded before they can query it.
+TorrentNet allows you to build distributed search engines by leveraging the BitTorrent network and the SQLite database. Users do not have to wait until the site is fully downloaded before they can query it.
 
 ## How?
 
@@ -18,7 +18,7 @@ Site owners create an SQLite database (.db file) and create a torrent from this 
 
 Site users then start downloading the site torrent, but, rather than downloading pieces of the torrent in "rarest first" order, they download pieces based on the *search query* they performed.
 
-**In other words, given a search query such as "indiana jones", TorrentPeek knows to download pieces of the torrent where data for "indiana jones" is likely to be stored at.**
+**In other words, given a search query such as "indiana jones", TorrentNet knows to download pieces of the torrent where data for "indiana jones" is likely to be stored at.**
 
 Hence, results are given to users in a timely manner, without having to wait until the entire database is downloaded.
 
