@@ -43,13 +43,13 @@ Distributed torrent sites, queryable on demand by prioritizing specific piece do
 * Cons
   * Read only sites for now. ZeroNet seems to have a solution to this problem but I'm not convinced yet.
   * Your site doesn't have a pretty name. Sharing your public key can be much harder than sharing the name of a DNS site.
-  * No standards for doing distributed sites. Many different solutions (IPFS, ZeroNet, Freenet, etc..). TorrentPeek at least follows most of the BitTorrent specifications (using the powerful libtorrent library) and provides unique SQL querying capabilities.
+  * No standards for doing distributed sites. Many different solutions (IPFS, ZeroNet, Freenet, etc..). Torrent-net at least follows most of the BitTorrent specifications (using the powerful libtorrent library) and provides unique SQL querying capabilities.
 
 # sqltorrent
 
 By putting an SQLite database file (.db) inside a torrent, we can query its content -- by prioritizing pieces based on the SQL query -- and quickly *peek* at the content of the database without downloading it entirely.
 
-TorrentPeek was inspired by [sqltorrent](https://github.com/bittorrent/sqltorrent).
+Torrent-net was inspired by [sqltorrent](https://github.com/bittorrent/sqltorrent).
 
 
 A video is worth 1000 words: https://www.youtube.com/watch?v=EKttt8PYu5M&feature=youtu.be
