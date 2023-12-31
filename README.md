@@ -6,7 +6,7 @@
 
 # About
 
-Distributed sites have gained much attention lately with systems such as [ZeroNet](https://zeronet.io/) and [IPFS](https://ipfs.io/), which seem to improve on older systems like [Freenet](https://freenetproject.org/).
+Distributed sites have gained much attention lately with systems such as [ZeroNet](https://zeronet.io/)(Censorship-resistant, but non-anonymous) and [IPFS](https://ipfs.io/)(Censorship-resistant, but non-anonymous) or [Freenet](https://freenetproject.org/)(censorship resistant and anonymous). 
 
 Building search engines on top of these distributed systems is not quite feasible yet as users need to download the entire site database (usually several hundreds of gigabytes large) before running queries against it.
 
@@ -43,13 +43,13 @@ Distributed torrent sites, queryable on demand by prioritizing specific piece do
 * Cons
   * Read only sites for now. ZeroNet seems to have a solution to this problem but I'm not convinced yet.
   * Your site doesn't have a pretty name. Sharing your public key can be much harder than sharing the name of a DNS site.
-  * No standards for doing distributed sites. Many different solutions (IPFS, ZeroNet, Freenet, etc..). Torrent-net at least follows most of the BitTorrent specifications (using the powerful libtorrent library) and provides unique SQL querying capabilities.
+  * No standards for doing distributed sites. Many different solutions (IPFS, ZeroNet, Freenet, etc..). TorrentNet at least follows most of the BitTorrent specifications (using the powerful libtorrent library) and provides unique SQL querying capabilities.
 
 # sqltorrent
 
 By putting an SQLite database file (.db) inside a torrent, we can query its content -- by prioritizing pieces based on the SQL query -- and quickly *peek* at the content of the database without downloading it entirely.
 
-Torrent-net was inspired by [sqltorrent](https://github.com/bittorrent/sqltorrent).
+TorrentNet was inspired by [sqltorrent](https://github.com/bittorrent/sqltorrent).
 
 
 A video is worth 1000 words: https://www.youtube.com/watch?v=EKttt8PYu5M&feature=youtu.be
