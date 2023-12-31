@@ -6,7 +6,7 @@
 
 # About
 
-Distributed sites have gained much attention lately with systems such as [ZeroNet](https://zeronet.io/)(Censorship-resistant, but non-anonymous) and [IPFS](https://ipfs.io/)(Censorship-resistant, but non-anonymous) or [Freenet](https://freenetproject.org/)(censorship resistant and anonymous). 
+Distributed sites have gained much attention lately with systems such as [ZeroNet](https://zeronet.io/), [IPFS](https://ipfs.io/). Unlike the other two [Freenet](https://freenetproject.org/) is censorship resistant and anonymous.
 
 Building search engines on top of these distributed systems is not quite feasible yet as users need to download the entire site database (usually several hundreds of gigabytes large) before running queries against it.
 
